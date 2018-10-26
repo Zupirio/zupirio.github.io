@@ -1,3 +1,43 @@
+<!Doctype <!DOCTYPE html>
+<html>
 <head>
-Hello Zupirio
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Zupirio Landing</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+	<script src="main.js"></script>
 </head>
+<body>
+	<h1>Welcome Zupirio</h1>
+
+</body>
+
+<footer>
+<script src="stickUp/stickUp.min.js"></script>
+<script type="text/javascript"> 
+//initiating jQuery 
+jQuery(function($)
+{
+	$(document).ready( function()
+	{ //enabling stickUp on the '.navbar-wrapper' class 
+	$('.body').stickUp
+		({ parts: 
+			{ 
+				0:'home', 
+				// 1:'features', 
+				// 2: 'news', 
+				// 3: 'installation', 
+				// 4: 'one-pager', 
+				// 5: 'extras', 
+				// 6: 'wordpress', 
+				// 7: 'contact'
+			}, 
+				itemClass: 'menuItem', 
+				itemHover: 'active' 
+		}); 
+	}); 
+}); 
+</script>
+</footer>
+</html>
