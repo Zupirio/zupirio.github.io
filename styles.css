@@ -6,5 +6,9 @@ body
 h1
 {
 	color: red;
+	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+	font-size: 300%;
+	border: 10px solid rebeccapurple;
+	text-align: center;
 }
 
