@@ -1,48 +1,978 @@
-<!--
-    Simple static Telegram WebApp. Does not verify the WebAppInitData, as a bot token would be needed for that.
--->
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <title>python-telegram-bot Example WebApp</title>
-    <script src="https://telegram.org/js/telegram-web-app.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@jaames/iro@5"></script>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+  <title>BluMilk</title>
+  <meta name="description" content="The next gen network to unite all blockchains and the existing Internet">
+
+  <meta property="og:title" content="TON - The Open Network">
+  <meta property="og:description" content="The next gen network to unite all blockchains and the existing Internet">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:url" content="https://t.me/Zupirio">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="TON">
+  <meta property="og:image" content="/img/ton-social.png">
+
+  <meta itemprop="name" content="TON - The Open Network">
+  <meta itemprop="description" content="The next gen network to unite all blockchains and the existing Internet">
+  <meta itemprop="image" content="/img/ton-social.png">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="https://ton.org/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://ton.org/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://ton.org/favicon-16x16.png">
+  <link rel="manifest" href="https://ton.org/site.webmanifest">
+  <link rel="mask-icon" href="https://ton.org/safari-pinned-tab.svg" color="#0088cc">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/mstile-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+
+  <link rel="stylesheet" href="TON%20-%20The%20Open%20Network_files/styles.css">
+  <link rel="preload" href="https://ton.org/fonts/Mulish-Regular.ttf" as="font" type="font/ttf" crossorigin="">
+  <link rel="preload" href="https://ton.org/fonts/Mulish-Black.ttf" as="font" type="font/ttf" crossorigin="">
+  <link rel="preload" href="https://ton.org/fonts/Mulish-ExtraBold.ttf" as="font" type="font/ttf" crossorigin="">
+  <link rel="preload" href="https://ton.org/fonts/Mulish-Bold.ttf" as="font" type="font/ttf" crossorigin="">
+  <link rel="preload" href="https://ton.org/fonts/SourceCodePro-Light.otf" as="font" type="font/otf" crossorigin="">
+  <link rel="preload" href="https://ton.org/fonts/Noto-Sans-Mono-CJK-JP-Bold.otf" as="font" type="font/otf"
+    crossorigin="">
+
+  <script async="" src="TON%20-%20The%20Open%20Network_files/tag.js"></script>
+  <script src="TON%20-%20The%20Open%20Network_files/jquery-3.js"
+    integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+  <script src="TON%20-%20The%20Open%20Network_files/jquery.js"></script>
+
 </head>
 
-<script type="text/javascript">
-    const colorPicker = new iro.ColorPicker('#picker', {
-        borderColor: "#ffffff",
-        borderWidth: 1,
-        width: Math.round(document.documentElement.clientWidth / 2),
-    });
+<body data-new-gr-c-s-check-loaded="8.896.0" data-gr-ext-installed="">
+  <div class="head-wrap">
+    <header>
+      <div class="container">
+        <a href="https://t.me/Zupirio" class="logo">
+          <img src="TON%20-%20The%20Open%20Network_files/logo.svg" alt="">
+          <span>BluMilk</span>
+        </a>
+        <div class="burger-menu">
+          <div class="burger js-burger">
+            <span></span>
+          </div>
+        </div>
+      </div>
+    </header>
 
-    colorPicker.on('color:change', function (color) {
-        document.body.style.background = color.hexString;
-    });
+    <nav>
+      <div class="nav-wrap">
+        <div class="nav-header">
+          <a href="https://ton.org/" class="logo">
+            <img src="TON%20-%20The%20Open%20Network_files/logo.svg" alt="">
+            <span>TON</span>
+          </a>
+          <div class="burger-menu">
+            <div class="burger js-burger active">
+              <span></span>
+            </div>
+          </div>
+        </div>
+        <div class="nav-list">
+          <div class="nav-item">
+            <!-- <div class="nav-item__btn"> Core </div>
+            <ul class="nav-item__list">
+              <li class="toncoin-mobile"> <a href="https://ton.org/coin"> Toncoin </a> </li>
+              <li> <a href="https://ton.org/primer.pdf"> Primer </a> </li>
+              <li> <a href="https://ton.org/whitepaper.pdf"> Whitepaper </a> </li>
+              <li> <a href="https://ton.org/wallets"> Wallets </a> </li>
+              <li> <a href="https://ton.org/services/"> Services </a> </li>
+              <li> <a href="https://tonscan.org/" target="_blank"> Explorer </a> </li>
+              <li> <a href="https://ton.org/bridge/"> Bridge </a> </li>
+              <li> <a href="https://ton.org/brand-assets"> Brand Assets </a> </li>
+              <li> <a href="https://ton.org/vacancies/" target="_blank"> Vacancies </a> </li>
+            </ul> -->
+          </div>
+          <div class="nav-item toncoin">
+            <a href="https://t.me/TelkomChatBot" target="_blank" class="nav-item__btn"> Demo </a>
+          </div>
+          <div class="nav-item">
+            <a href="https://github.com/Zupirio" target="_blank" class="nav-item__btn"> Developers </a>
+            <!-- <ul class="nav-item__list">
+              <li> <a href="https://github.com/newton-blockchain" target="_blank"> GitHub </a> </li>
+              <li> <a href="https://ton.org/docs"> Docs </a> </li>
+              <li> <a href="https://toncenter.com/" target="_blank"> API </a> </li>
+              <li> <a href="https://t.me/testgiver_ton_bot" target="_blank"> Testnet Faucet </a> </li>
+              <li> <a href="https://testnet.tonscan.org/" target="_blank"> Testnet Explorer </a> </li>
+              <li> <a href="https://ton.org/bridge?testnet=true"> Testnet Bridge </a> </li>
+            </ul> -->
+          </div>
+          <!-- <div class="nav-item mining">
+            <a href="https://ton.org/mining" class="nav-item__btn"> Mining </a>
+            <ul class="nav-item__list">
+              <li> <a href="https://ton.org/mining"> Mining </a> </li>
+            </ul>
+          </div> -->
+          <div class="nav-item">
+            <a  href="mailto:zupirio@duck.com" target="_blank" class="nav-item__btn"> Contact Us </a>
+            <!-- <ul class="nav-item__list">
+              <li> <a href="https://ton.org/validator"> Become validator </a> </li>
+              <li> <a href="https://tonmon.xyz/" target="_blank"> Network Monitor </a> </li>
+            </ul> -->
+          </div>
+        </div>
+        <div class="nav-btns">
+          <a href="https://t.me/tonblockchain" class="btn btn-primary btn-mob">
+            <img src="TON%20-%20The%20Open%20Network_files/telegram.svg" alt="">
+            <span> Channel </span>
+          </a>
+          <a href="https://github.com/newton-blockchain" target="_blank" class="btn btn-outline btn-mob">
+            <img src="TON%20-%20The%20Open%20Network_files/github-blue.svg" alt="">
+            <span> Github </span>
+          </a>
+        </div>
+      </div>
+    </nav>
+  </div>
 
+  <main>
+    <div class="container">
+      <section class="main-block">
+        <div class="row ti-row ti-row__centered">
+          <div class="row-text">
+            <h1> Welcome to BluMilk </h1>
+            <p class="text-gray">BluMilk is a service where you can easily connect and use South African services on Telegram.</p>
+            <p class="text-gray">Why Telegram? Telegram is a free social media platform that allows us to build services that can be used by South African citizens at low cost.</p>
+            <div class="main-block__btns row-btns">
+              <a href="https://t.me/TelkomChatBot" target="_blank" class="btn btn-primary"
+                onclick="ym(83597527, 'reachGoal', 'click.tg'); return true;">
+                <img src="TON%20-%20The%20Open%20Network_files/telegram.svg" alt="">
+                <span> <span class="xs-hide">Telegram</span> <span>Channel</span></span>
+              </a>
+              <a href="https://github.com/zupirio" target="_blank" class="btn btn-outline">
+                <img src="TON%20-%20The%20Open%20Network_files/github-blue.svg" alt="">
+                <span>Github</span>
+              </a>
+            </div>
+          </div>
+          <div class="row-img">
+            <img src="TON%20-%20The%20Open%20Network_files/img_1.svg" alt="">
+          </div>
+        </div>
+        <div class="figure-list">
+          <figure>
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon">
+              <path
+                d="M8 23.812V16.182C8 13.686 9.546 11.45 11.88 10.568L28.586 4.26C31.204 3.274 34 5.206 34 8.004V14.704"
+                stroke="#0088CC" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+              <path
+                d="M34.747 27.5C34.333 27.503 34 27.839 34 28.253C34 28.667 34.336 29.003 34.75 29C35.164 29 35.5 28.664 35.5 28.25C35.5 27.836 35.164 27.5 34.747 27.5Z"
+                stroke="#0088CC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+              <path
+                d="M21.324 42H36C39.3 42 42 39.3 42 36V20.702C42 17.388 39.314 14.702 36 14.702H12C9.79 14.702 8 16.492 8 18.702V24.514"
+                stroke="#0088CC" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+              <path
+                d="M15 44C8.926 44 4 39.074 4 33C4 26.926 8.926 22 15 22C21.076 22 26 26.926 26 33C26 39.074 21.076 44 15 44Z"
+                stroke="#0088CC" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+              <path d="M15 28.614V37.388" stroke="#0088CC" stroke-width="3" stroke-linecap="round"
+                stroke-linejoin="round"></path>
+              <path d="M19.3853 33H10.6133" stroke="#0088CC" stroke-width="3" stroke-linecap="round"
+                stroke-linejoin="round"></path>
+            </svg>
+            <figcaption>
+              <p class="text-bold"><a href="" class="stretched-link text-bold">Government Services</a></p>
+              <p class="text-gray">Easily and conveniently use government services without queuing</p>
+            </figcaption>
+          </figure>
+          <figure>
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon">
+              <path
+                d="M30 29.778H8.368C5.956 29.778 4 27.822 4 25.41V10.368C4 7.956 5.956 6 8.368 6H29.634C32.044 6 34 7.956 34 10.368V20"
+                stroke="#0088CC" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+              <path d="M22.3984 29.78L23.1784 36" stroke="#0088CC" stroke-width="3" stroke-linecap="round"
+                stroke-linejoin="round"></path>
+              <path d="M16.1784 29.78L15.3984 36" stroke="#0088CC" stroke-width="3" stroke-linecap="round"
+                stroke-linejoin="round"></path>
+              <path d="M13.2812 36H25.2813" stroke="#0088CC" stroke-width="3" stroke-linecap="round"
+                stroke-linejoin="round"></path>
+              <path
+                d="M34 20H40C42.21 20 44 21.79 44 24V38C44 40.21 42.21 42 40 42H34C31.79 42 30 40.21 30 38V24C30 21.79 31.79 20 34 20Z"
+                stroke="#0088CC" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+              <path d="M35.5 37.5H38.5" stroke="#0088CC" stroke-width="3" stroke-linecap="round"
+                stroke-linejoin="round"></path>
+            </svg>
+            <figcaption>
+              <p class="text-bold"><a href="" class="stretched-link text-bold">3rd Party Services</a>
+              </p>
+              <p class="text-gray">Build your chat messenger solution with us</p>
+            </figcaption>
+          </figure>
+          <figure>
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon">
+              <path
+                d="M38.2406 27.758C40.8366 30.354 40.5566 34.732 37.4046 36.946C35.3986 38.354 32.5966 38.354 30.5906 36.946C27.4366 34.734 27.1586 30.354 29.7546 27.758C32.0986 25.414 35.8986 25.414 38.2406 27.758"
+                stroke="#0088CC" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+              <path d="M41.9983 40L38.2383 36.24" stroke="#0088CC" stroke-width="3" stroke-linecap="round"
+                stroke-linejoin="round"></path>
+              <path d="M14 26H22" stroke="#0088CC" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+              </path>
+              <path d="M14 18H30" stroke="#0088CC" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+              </path>
+              <path d="M38 20V14C38 10.686 35.314 8 32 8H12C8.686 8 6 10.686 6 14V32C6 35.314 8.686 38 12 38H22"
+                stroke="#0088CC" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+            <figcaption>
+              <p class="text-bold"><a href="" target="_blank"
+                  class="stretched-link text-bold">Explorer</a></p>
+              <p class="text-gray">Get transaction details</p>
+            </figcaption>
+          </figure>
+          <!-- <figure>
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon">
+              <path
+                d="M4 41.2365C6.56951 40.2185 9.43049 40.2185 12 41.2365V41.2365C14.5695 42.2545 17.4305 42.2545 20 41.2365V41.2365C22.5695 40.2185 25.4305 40.2185 28 41.2365V41.2365C30.5695 42.2545 33.4305 42.2545 36 41.2365V41.2365C38.5695 40.2185 41.4305 40.2185 44 41.2365V41.2365"
+                stroke="#0088CC" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+              <path d="M36 8C36 15.732 30.6274 22 24 22C17.3726 22 12 15.732 12 8" stroke="#0088CC" stroke-width="3"
+                stroke-linecap="round" stroke-linejoin="round"></path>
+              <path
+                d="M6 36V7C6 6.73478 6.10536 6.48043 6.29289 6.29289C6.48043 6.10536 6.73478 6 7 6H11C11.2652 6 11.5196 6.10536 11.7071 6.29289C11.8946 6.48043 12 6.73478 12 7V36"
+                stroke="#0088CC" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+              <path
+                d="M36 36V7C36 6.73478 36.1054 6.48043 36.2929 6.29289C36.4804 6.10536 36.7348 6 37 6H41C41.2652 6 41.5196 6.10536 41.7071 6.29289C41.8946 6.48043 42 6.73478 42 7V36"
+                stroke="#0088CC" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+              <path d="M36 30H12" stroke="#0088CC" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+              </path>
+              <path d="M18 29.9999V20.122" stroke="#0088CC" stroke-width="3" stroke-linecap="round"
+                stroke-linejoin="round"></path>
+              <path d="M24 29.9999V22" stroke="#0088CC" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+              </path>
+              <path d="M42 30H46" stroke="#0088CC" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+              </path>
+              <path d="M6 30H2" stroke="#0088CC" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+              <path d="M30 29.9999V20.122" stroke="#0088CC" stroke-width="3" stroke-linecap="round"
+                stroke-linejoin="round"></path>
+              <path d="M46.0007 18C43.4009 15.3245 41.9632 11.7304 42.0007 8" stroke="#0088CC" stroke-width="3"
+                stroke-linecap="round" stroke-linejoin="round"></path>
+              <path d="M2 18C4.59982 15.3245 6.03749 11.7304 6 8" stroke="#0088CC" stroke-width="3"
+                stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+            <figcaption>
+              <p class="text-bold"><a href="" class="stretched-link text-bold">Bridge</a></p>
+              <p class="text-gray"> Toncoins cross network transfers </p>
+            </figcaption>
+          </figure> -->
+        </div>
+      </section>
 
-    Telegram.WebApp.ready();
-    Telegram.WebApp.MainButton.setText('Choose Color').show().onClick(function () {
-        const data = JSON.stringify({hex: colorPicker.color.hexString, rgb: colorPicker.color.rgb});
-        Telegram.WebApp.sendData(data);
-        Telegram.WebApp.close();
-    });
+      <!-- <section class="represent-block">
+          <div class="represent-docs"> 
+            <h3> Primer </h3>
+            <p class="text-gray text-medium"> Download TON executive summary </p>
+            <div class="represent-docs__list">  
+              <div class="represent-docs__item">  
+                <a href="https://ton.org/primer.pdf">
+                  <img src="TON%20-%20The%20Open%20Network_files/GB.svg" alt="">
+                  <span class="text-bold text-blue"> English </span>
+                </a>
+              </div>
+              <div class="represent-docs__item">  
+                <a href="https://ton.org/primer_kor.pdf">
+                  <img src="TON%20-%20The%20Open%20Network_files/KR.svg" alt="">
+                  <span class="text-blue text-cjk"> 한국어 </span>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="represent-docs"> 
+            <h3> Whitepaper </h3>
+            <p class="text-gray text-medium"> TON technical description </p>
+            <div class="represent-docs__list">
+              <div class="represent-docs__item">  
+                <a href="https://ton.org/whitepaper.pdf">
+                  <img src="TON%20-%20The%20Open%20Network_files/GB.svg" alt="">
+                  <span class="text-bold text-blue"> English </span>
+                </a>
+              </div>
+              <div class="represent-docs__item">  
+                <a href="https://ton.org/whitepaper_kor.pdf">
+                  <img src="TON%20-%20The%20Open%20Network_files/KR.svg" alt="">
+                  <span class="text-blue text-cjk"> 한국어 </span>
+                </a>
+              </div>
+              <div class="represent-docs__item">  
+                <a href="https://ton.org/whitepaper_cn.pdf">
+                  <img src="TON%20-%20The%20Open%20Network_files/CN.svg" alt="">
+                  <span class="text-blue text-cjk"> 中國人 </span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </section> -->
 
-</script>
+      <!-- <section class="block-b toncoin-block">
+        <div class="abs-row">
+          <h3> Toncoin </h3>
+          <p class="text-gray text-medium"> Cryptocurrency of TON Blockchain </p>
+          <div class="abs-row__img">
+            <img src="TON%20-%20The%20Open%20Network_files/page-coin_img1.svg" alt="">
+          </div>
+          <div class="figure-list toncoin-block__links">
+            <figure>
+              <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"
+                class="icon">
+                <path
+                  d="M4 41.2365C6.56951 40.2185 9.43049 40.2185 12 41.2365V41.2365C14.5695 42.2545 17.4305 42.2545 20 41.2365V41.2365C22.5695 40.2185 25.4305 40.2185 28 41.2365V41.2365C30.5695 42.2545 33.4305 42.2545 36 41.2365V41.2365C38.5695 40.2185 41.4305 40.2185 44 41.2365V41.2365"
+                  stroke="#0088CC" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path d="M36 8C36 15.732 30.6274 22 24 22C17.3726 22 12 15.732 12 8" stroke="#0088CC" stroke-width="3"
+                  stroke-linecap="round" stroke-linejoin="round"></path>
+                <path
+                  d="M6 36V7C6 6.73478 6.10536 6.48043 6.29289 6.29289C6.48043 6.10536 6.73478 6 7 6H11C11.2652 6 11.5196 6.10536 11.7071 6.29289C11.8946 6.48043 12 6.73478 12 7V36"
+                  stroke="#0088CC" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path
+                  d="M36 36V7C36 6.73478 36.1054 6.48043 36.2929 6.29289C36.4804 6.10536 36.7348 6 37 6H41C41.2652 6 41.5196 6.10536 41.7071 6.29289C41.8946 6.48043 42 6.73478 42 7V36"
+                  stroke="#0088CC" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path d="M36 30H12" stroke="#0088CC" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                </path>
+                <path d="M18 29.9999V20.122" stroke="#0088CC" stroke-width="3" stroke-linecap="round"
+                  stroke-linejoin="round"></path>
+                <path d="M24 29.9999V22" stroke="#0088CC" stroke-width="3" stroke-linecap="round"
+                  stroke-linejoin="round"></path>
+                <path d="M42 30H46" stroke="#0088CC" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                </path>
+                <path d="M6 30H2" stroke="#0088CC" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                </path>
+                <path d="M30 29.9999V20.122" stroke="#0088CC" stroke-width="3" stroke-linecap="round"
+                  stroke-linejoin="round"></path>
+                <path d="M46.0007 18C43.4009 15.3245 41.9632 11.7304 42.0007 8" stroke="#0088CC" stroke-width="3"
+                  stroke-linecap="round" stroke-linejoin="round"></path>
+                <path d="M2 18C4.59982 15.3245 6.03749 11.7304 6 8" stroke="#0088CC" stroke-width="3"
+                  stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg>
+              <figcaption>
+                <p class="text-bold"><a href="https://ton.org/coin#bridge"
+                    class="stretched-link text-bold js-page-anchor"> Bridge </a></p>
+              </figcaption>
+            </figure>
+            <figure>
+              <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"
+                class="icon">
+                <path
+                  d="M27.3091 20.6897C29.1375 22.5181 29.1375 25.4826 27.3091 27.311C25.4806 29.1395 22.5162 29.1395 20.6877 27.311C18.8593 25.4826 18.8593 22.5181 20.6877 20.6897C22.5162 18.8613 25.4807 18.8613 27.3091 20.6897Z"
+                  stroke="#0088CC" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path
+                  d="M42.8969 21.0194C44.5425 22.6651 44.5425 25.3332 42.8969 26.9789C41.2512 28.6246 38.5831 28.6246 36.9374 26.9789C35.2917 25.3332 35.2917 22.6651 36.9374 21.0194C38.583 19.3737 41.2512 19.3737 42.8969 21.0194"
+                  stroke="#0088CC" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path
+                  d="M11.0609 21.0194C12.7066 22.6651 12.7066 25.3332 11.0609 26.9789C9.41527 28.6246 6.74712 28.6246 5.10144 26.9789C3.45577 25.3332 3.45577 22.6651 5.10144 21.0194C6.74711 19.3737 9.41526 19.3737 11.0609 21.0194"
+                  stroke="#0088CC" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path
+                  d="M34.9359 7.23425C36.5816 8.87992 36.5816 11.5481 34.9359 13.1938C33.2903 14.8394 30.6221 14.8394 28.9764 13.1938C27.3308 11.5481 27.3308 8.87993 28.9764 7.23425C30.6221 5.58858 33.2903 5.58858 34.9359 7.23425Z"
+                  stroke="#0088CC" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path
+                  d="M19.0219 34.8065C20.6675 36.4522 20.6675 39.1203 19.0219 40.766C17.3762 42.4117 14.7081 42.4117 13.0624 40.766C11.4167 39.1204 11.4167 36.4522 13.0624 34.8065C14.708 33.1608 17.3762 33.1608 19.0219 34.8065Z"
+                  stroke="#0088CC" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path
+                  d="M19.0219 7.23425C20.6675 8.87992 20.6675 11.5481 19.0219 13.1938C17.3762 14.8394 14.7081 14.8394 13.0624 13.1938C11.4167 11.5481 11.4167 8.87993 13.0624 7.23425C14.708 5.58858 17.3762 5.58858 19.0219 7.23425Z"
+                  stroke="#0088CC" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path
+                  d="M34.9359 34.8065C36.5816 36.4522 36.5816 39.1203 34.9359 40.766C33.2903 42.4117 30.6221 42.4117 28.9764 40.766C27.3308 39.1204 27.3308 36.4522 28.9764 34.8065C30.6221 33.1608 33.2903 33.1608 34.9359 34.8065Z"
+                  stroke="#0088CC" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path d="M18.1406 34.1391L21.6606 28.0391" stroke="#0088CC" stroke-width="3" stroke-linecap="round"
+                  stroke-linejoin="round"></path>
+                <path d="M18.1406 13.8594L21.6606 19.9594" stroke="#0088CC" stroke-width="3" stroke-linecap="round"
+                  stroke-linejoin="round"></path>
+                <path d="M35.6997 24H28.6797" stroke="#0088CC" stroke-width="3" stroke-linecap="round"
+                  stroke-linejoin="round"></path>
+              </svg>
+              <figcaption>
+                <p class="text-bold"><a href="https://ton.org/coin#uscases"
+                    class="stretched-link text-bold js-page-anchor"> Usecases </a></p>
+              </figcaption>
+            </figure>
+            <figure>
+              <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"
+                class="icon">
+                <path
+                  d="M34 10.634C35.85 10.3 37.788 10.106 39.912 10.034C41.048 9.99603 42 10.896 42 12.032V35.706C42 36.79 41.134 37.686 40.052 37.702C33.868 37.796 29.212 38.936 24 42C18.788 38.936 14.132 37.796 7.948 37.704C6.866 37.688 6 36.79 6 35.706V12.032C6 10.914 6.918 9.99603 8.034 10.032C14.176 10.23 18.812 11.386 24 14.292"
+                  stroke="#0088CC" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path
+                  d="M34 30.476V6.024C34 4.566 32.468 3.548 31.166 4.202C27.654 5.962 24.694 9.54 24 13.224V42C24.792 37.802 28.522 33.742 32.662 32.352C33.466 32.082 34 31.324 34 30.476V30.476Z"
+                  stroke="#0088CC" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg>
+              <figcaption>
+                <p class="text-bold"><a href="https://ton.org/coin#history"
+                    class="stretched-link text-bold js-page-anchor"> History </a></p>
+              </figcaption>
+            </figure>
+          </div>
+          <a href="https://ton.org/coin" class="btn btn-primary btn-medium btn-img">
+            <img src="TON%20-%20The%20Open%20Network_files/coins.svg" alt="">
+            <span> Get Toncoins </span>
+          </a>
+        </div>
+      </section> -->
 
-<body style="background-color: #ffffff">
-<div style="position: absolute; margin-top: 5vh; margin-left: 5vw; height: 90vh; width: 90vw; border-radius: 5vh; background-color: var(--tg-theme-bg-color); box-shadow: 0 0 2vw
- #000000;">
-    <div id="picker"
-         style="display: flex; justify-content: center; align-items: center; height: 100%; width: 100%"></div>
-</div>
+      <section class="component-block">
+        <h3> Key Components </h3>
+        <p class="text-gray text-medium restricted">
+          Apart from processing millions of transactions per second, TON blockchain-based ecosystem
+          has all the chances to give rise to a genuine Web3.0 Internet with decentralized storage,
+          anonymous network, DNS, instant payments and various decentralized services.
+        </p>
+        <div class="figure-list">
+          <figure>
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon">
+              <path
+                d="M12 14H10C8.896 14 8 13.104 8 12V10C8 8.896 8.896 8 10 8H12C13.104 8 14 8.896 14 10V12C14 13.104 13.104 14 12 14Z"
+                stroke="#0088CC" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+              <path
+                d="M25 14H23C21.896 14 21 13.104 21 12V10C21 8.896 21.896 8 23 8H25C26.104 8 27 8.896 27 10V12C27 13.104 26.104 14 25 14Z"
+                stroke="#0088CC" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+              <path
+                d="M38 14H36C34.896 14 34 13.104 34 12V10C34 8.896 34.896 8 36 8H38C39.104 8 40 8.896 40 10V12C40 13.104 39.104 14 38 14Z"
+                stroke="#0088CC" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+              <path
+                d="M21 12V10C21 8.896 21.896 8 23 8H25C26.104 8 27 8.896 27 10V12C27 13.104 26.104 14 25 14H23C21.896 14 21 13.104 21 12Z"
+                stroke="#0088CC" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+              <path
+                d="M12 27H10C8.896 27 8 26.104 8 25V23C8 21.896 8.896 21 10 21H12C13.104 21 14 21.896 14 23V25C14 26.104 13.104 27 12 27Z"
+                stroke="#0088CC" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+              <path
+                d="M25 27H23C21.896 27 21 26.104 21 25V23C21 21.896 21.896 21 23 21H25C26.104 21 27 21.896 27 23V25C27 26.104 26.104 27 25 27Z"
+                stroke="#0088CC" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+              <path
+                d="M38 27H36C34.896 27 34 26.104 34 25V23C34 21.896 34.896 21 36 21H38C39.104 21 40 21.896 40 23V25C40 26.104 39.104 27 38 27Z"
+                stroke="#0088CC" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+              <path
+                d="M12 40H10C8.896 40 8 39.104 8 38V36C8 34.896 8.896 34 10 34H12C13.104 34 14 34.896 14 36V38C14 39.104 13.104 40 12 40Z"
+                stroke="#0088CC" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+              <path
+                d="M25 40H23C21.896 40 21 39.104 21 38V36C21 34.896 21.896 34 23 34H25C26.104 34 27 34.896 27 36V38C27 39.104 26.104 40 25 40Z"
+                stroke="#0088CC" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+              <path
+                d="M38 40H36C34.896 40 34 39.104 34 38V36C34 34.896 34.896 34 36 34H38C39.104 34 40 34.896 40 36V38C40 39.104 39.104 40 38 40Z"
+                stroke="#0088CC" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+            <figcaption>
+              <div class="figure-title">
+                <a class="text-bold stretched-link"> Web Bots </a>
+                <!-- <div class="badge badge-green"> Launched </div> -->
+                <div class="badge"> Concept </div>
+              </div>
+              <p> Web bots allow you to create any kind of interface directly in the attach menu. The use of web
+                technologies (i.e., an embedded browser) gives developers maximum flexibility when creating interfaces. Within web
+                interfaces, developers can request files from disk, use a webcam and microphone — after
+                appropriate permission from the user.
+              </p>
+            </figcaption>
+          </figure>
+          <figure>
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon">
+              <path
+                d="M26.747 26.5C26.333 26.503 26 26.839 26 27.253C26 27.667 26.336 28.003 26.75 28C27.164 28 27.5 27.664 27.5 27.25C27.5 26.836 27.164 26.5 26.747 26.5Z"
+                stroke="#0088CC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+              <path d="M6 12.566V12C6 8.686 8.686 6 12 6H36C39.314 6 42 8.686 42 12V30C42 33.314 39.314 36 36 36H34"
+                stroke="#0088CC" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+              <path d="M42 18H34" stroke="#0088CC" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+              </path>
+              <path
+                d="M26.65 41.844C30.41 42.712 34 39.856 34 35.998V18.774C34 15.98 32.072 13.556 29.35 12.928L10.9 8.66997C8.392 8.08997 6 9.99397 6 12.566V32.304C6 35.098 7.928 37.522 10.65 38.15L26.65 41.844Z"
+                stroke="#0088CC" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+            <figcaption>
+              <div class="figure-title">
+                <a class="text-bold stretched-link"> Driver's License Renewal </a>
+                <div class="badge"> 10% Ready (Concept) </div>
+              </div>
+              <p> 
+                Our Telegram Bot provides you with a seamless user interface that allows you to easily upload
+                required documents, such as proof of identity and address, and even take a photo using your webcam.
+                With our Telegram Bot, you can enjoy maximum flexibility and convenience when renewing your driver's
+                license.
+                Don't wait until the last minute to renew your driver's license. Use our driver's license renewal service today and
+                enjoy the ease and convenience of online renewal. 
+              </p>
+            </figcaption>
+          </figure>
+          <figure>
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon">
+              <path d="M32.0029 42.0076H36.0046C39.3197 42.0076 42.0071 39.3202 42.0071 36.0051V32.0034"
+                stroke="#0088CC" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+              <path d="M5.99219 32.0034V36.0051C5.99219 39.3202 8.6796 42.0076 11.9947 42.0076H15.9964" stroke="#0088CC"
+                stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+              <path d="M32.0029 5.99243H36.0046C39.3197 5.99243 42.0071 8.67984 42.0071 11.9949V15.9966"
+                stroke="#0088CC" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+              <path d="M5.99219 15.9966V11.9949C5.99219 8.67984 8.6796 5.99243 11.9947 5.99243H15.9964" stroke="#0088CC"
+                stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+              <circle cx="18.0322" cy="32.4035" r="3.6015" stroke="#0088CC" stroke-width="3" stroke-linecap="round"
+                stroke-linejoin="round"></circle>
+              <circle cx="29.8085" cy="32.4035" r="3.6015" stroke="#0088CC" stroke-width="3" stroke-linecap="round"
+                stroke-linejoin="round"></circle>
+              <path
+                d="M21.6338 32.4036C22.1739 31.6844 23.0208 31.2613 23.9202 31.2613C24.8196 31.2613 25.6665 31.6844 26.2066 32.4036"
+                stroke="#0088CC" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+              <path d="M11.9951 25.5758C19.6036 22.0203 28.3967 22.0203 36.0051 25.5758" stroke="#0088CC"
+                stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+              <path
+                d="M16.3604 19.1981L17.1898 14.2237C17.4042 12.9379 18.5165 11.9955 19.82 11.9951H28.1776C29.482 11.9944 30.5955 12.9371 30.81 14.2237L31.6394 19.1981"
+                stroke="#0088CC" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+            <figcaption>
+              <div class="figure-title">
+                <a class="text-bold stretched-link"> Corruption Hotline </a>
+                <div class="badge"> 75% Ready </div>
+              </div>
+              <p>               
+              To ensure your anonymity, our bot does not collect any identifying information about you or your device. You can rest
+              assured that your report will remain confidential and secure.
+              
+              Once your report is submitted, our team of professionals will review it and take the necessary steps to investigate the
+              corruption. You can also follow up with our bot to receive updates on the status of your report.
+              </p>
+            </figcaption>
+          </figure>
+          <figure>
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon">
+              <path
+                d="M18 21C19.656 21 21 22.344 21 24C21 25.656 19.656 27 18 27C16.344 27 15 25.656 15 24C15 22.344 16.344 21 18 21Z"
+                stroke="#0088CC" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+              <path
+                d="M32.3809 16C32.3809 17.656 31.0369 19 29.3809 19C27.7249 19 26.3809 17.656 26.3809 16C26.3809 14.344 27.7249 13 29.3809 13C31.0369 13 32.3809 14.344 32.3809 16Z"
+                stroke="#0088CC" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+              <path
+                d="M43.1387 32C43.1387 33.656 41.7947 35 40.1387 35C38.4827 35 37.1387 33.656 37.1387 32C37.1387 30.344 38.4827 29 40.1387 29C41.7947 29 43.1387 30.344 43.1387 32Z"
+                stroke="#0088CC" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+              <path d="M42 24H21" stroke="#0088CC" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+              </path>
+              <path d="M15 24H6" stroke="#0088CC" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+              </path>
+              <path d="M37.1394 32H7.85938" stroke="#0088CC" stroke-width="3" stroke-linecap="round"
+                stroke-linejoin="round"></path>
+              <path d="M26.3794 16H7.85938" stroke="#0088CC" stroke-width="3" stroke-linecap="round"
+                stroke-linejoin="round"></path>
+              <path d="M40.1409 16H32.3809" stroke="#0088CC" stroke-width="3" stroke-linecap="round"
+                stroke-linejoin="round"></path>
+              <path
+                d="M29.762 18.978C29.916 20.572 30 22.256 30 24C30 33.942 27.314 42 24 42C21.026 42 18.56 35.512 18.084 26.998"
+                stroke="#0088CC" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+              <path d="M28.764 13.062C27.668 8.77 25.942 6 24 6C21.028 6 18.56 12.488 18.084 21" stroke="#0088CC"
+                stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+              <path
+                d="M41.234 29.202C41.73 27.554 42 25.81 42 24C42 14.058 33.942 6 24 6C14.058 6 6 14.058 6 24C6 33.942 14.058 42 24 42C29.994 42 35.3 39.068 38.57 34.564"
+                stroke="#0088CC" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+            <figcaption>
+              <div class="figure-title">
+                <a class="text-bold stretched-link"> Early Warning Alerts </a>
+                <div class="badge"> 90% Ready </div>
+              </div>
+              <p> Designed to help you stay informed about potential emergencies or dangers in your community. 
+                Receive real-time updates about weather emergencies, natural disasters, public health alerts, and other
+              important information that could affect your safety.
+              </p>
+            </figcaption>
+          </figure>
+          <figure>
+            <img src="TON%20-%20The%20Open%20Network_files/key-5.svg" alt="">
+            <figcaption>
+              <div class="figure-title">
+                <span class="text-bold"> Medical Health Checks </span>
+                <div class="badge"> 50% Ready </div>
+              </div>
+              <p> If you have any questions or concerns about your health, our bot also allows you to connect with medical professionals
+              directly from within the app. You can schedule a virtual appointment, ask questions, or receive guidance from qualified
+              medical professionals, all from the comfort of your own home.
+              </p>
+            </figcaption>
+          </figure>
+          <!-- <figure>
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon">
+              <path
+                d="M30 29.778H8.368C5.956 29.778 4 27.822 4 25.41V10.368C4 7.956 5.956 6 8.368 6H29.634C32.044 6 34 7.956 34 10.368V20"
+                stroke="#0088CC" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+              <path d="M22.4004 29.78L23.1804 36" stroke="#0088CC" stroke-width="3" stroke-linecap="round"
+                stroke-linejoin="round"></path>
+              <path d="M16.1804 29.78L15.4004 36" stroke="#0088CC" stroke-width="3" stroke-linecap="round"
+                stroke-linejoin="round"></path>
+              <path d="M13.2793 36H25.2793" stroke="#0088CC" stroke-width="3" stroke-linecap="round"
+                stroke-linejoin="round"></path>
+              <path
+                d="M34 20H40C42.21 20 44 21.79 44 24V38C44 40.21 42.21 42 40 42H34C31.79 42 30 40.21 30 38V24C30 21.79 31.79 20 34 20Z"
+                stroke="#0088CC" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+              <path d="M35.5 37.5H38.5" stroke="#0088CC" stroke-width="3" stroke-linecap="round"
+                stroke-linejoin="round"></path>
+            </svg>
+            <figcaption>
+              <div class="figure-title">
+                <a href="https://ton.org/services/" class="text-bold stretched-link"> Push Messaging </a>
+                <div class="badge badge-green"> Launched </div>
+              </div>
+              <p>
+                TON Services provides a versatile platform for third-party
+                services. It enables smartphone-like friendly interfaces for
+                decentralized apps and smart contracts, as well as a World
+                Wide Web-like decentralized browsing experience.
+                <br><br>
+                TON provides a searchable registry of decentralized services and applications.
+              </p>
+            </figcaption>
+          </figure> -->
+          <!-- <figure>
+            <img src="TON%20-%20The%20Open%20Network_files/key-7.svg" alt="">
+            <figcaption>
+              <div class="figure-title">
+                <span class="text-bold"> TON Workchains </span>
+                <div class="badge"> 50% Ready </div>
+              </div>
+              <p>
+                TON consists of the masterchain and up to 2<sup>32</sup> workchains with different rulesets, i.e.
+                different formats of account addresses and transactions, virtual machines for smart contracts and basic
+                cryptocurrencies, etc. Yet, workchains can still interact using consistent basic rules.
+                <br><br>
+                Today there is a wide variety of operating blockchains that are loosely connected to one another.
+                Current attempts to use Bridging to establish interaction between them leave much to be desired in terms
+                of both performance and decentralization levels. TON design will allow pooling all existing blockchains
+                into a unified decentralized network.
+              </p>
+            </figcaption>
+          </figure> -->
+        </div>
+      </section>
+
+      <!-- <section class="block-a">
+          <div class="abs-row">
+            <h3> TON Commandments </h3>
+            <div class="abs-row__img">
+              <img src="TON%20-%20The%20Open%20Network_files/img_2.svg" alt="">
+            </div>
+            <p> Exchanging value should be as easy as exchanging
+              information and blockchain technology ideally service the
+              purpose. With this goal in mind we worded the key
+              principles of TON design and development:
+            </p>
+            <ul>
+              <li>
+                <span class="text-bold"> Speed and scalability </span>
+                to process millions transactions
+                per second, accommodating an unlimited number of
+                active users and sustaining operations of numerous
+                apps.
+              </li>
+              <li>
+                <span class="text-bold"> Intuitive user interfaces </span>
+                to make blockchain about
+                people, not geeks and nerds, to help everyone buy, store
+                and transfer assets in a convenient, familiar way.
+              </li>
+              <li>
+                <span class="text-bold"> Decentralization </span>
+                to ensure reliability, stability and safety and to take steps towards a safer, self-governed world.
+              </li>
+            </ul>
+          </div>
+        </section> -->
+
+      <!-- <section class="timeline-block">
+          <div class="tab-link__list">
+            <div class="tab-link open"> TON Timeline </div>
+          </div>
+          <div class="tab-content__list">
+            <div class="tab-content open">
+              <div class="fact fact-green fact-dash fact-actual"></div>
+              <div class="fact fact-green fact-actual">
+                <div class="fact-badge"> Done </div>
+              </div>
+              <div class="fact fact-green">
+                <div class="fact-badge"> 2018 </div>
+                <div class="fact-info">
+                  Failing to find a suitable blockchain in the market to accommodate their ambitious ecosystem
+                  plans, Pavel and Nikolai Durov backed by a <a href="https://ton.org/original-team">unique developer team</a> embarked on creating TON:
+                  the next-gen blockchain with Gram coin.&nbsp;<a href="https://payspacemagazine.com/cryptocurrency/ton-gram-how-it-started-and-why-it-ended/" target="_blank" class="external-link"></a> </div>
+              </div>
+              <div class="fact fact-green">
+                <div class="fact-badge"> 2018 </div>
+                <div class="fact-info"> The Telegram team raised $1.7bn in a private ICO to launch Gram.&nbsp;<a href="https://www.theverge.com/2018/4/1/17186004/telegram-presale-open-network-app-ico-cryptocurrency-ton" target="_blank" class="external-link"></a> </div>
+              </div>
+              <div class="fact fact-green">
+                <div class="fact-badge"> 2019 </div>
+                <div class="fact-info">
+                  Having put a huge effort into the project, the team completed design and development of the core TON
+                  components, drafted documentation. <br><br>
+                  The Telegram team launched the first TON test network in Spring 2019, then the code was open-sourced and
+                  testnet2 started on November 15, 2019.&nbsp;<a href="https://thebell.io/en/despite-delay-durov-on-track-to-launch-his-cryptocurrency-in-march/" target="_blank" class="external-link"></a> </div>
+              </div>
+              <div class="fact fact-green">
+                <div class="fact-badge"> 11 Oct 2019 </div>
+                <div class="fact-info">
+                  Out of the blue the US SEC announced an emergency action against Gram and obtained
+                  temporary restraining order against Telegram on alleged unregistered, ongoing digital token
+                  offering in the U.S. and overseas that has raised more than $1.7 billion of investor funds. <br><br>
+                  Telegram argued SEC claims were ungrounded but agreed to postpone the network and coin launch till all
+                  legal matters are resolved. <br><br>
+                  Investors accepted Telegram’s suggestion to revise the launch date.&nbsp;<a href="https://en.wikipedia.org/wiki/Telegram_Open_Network" target="_blank" class="external-link"></a>
+                </div>
+              </div>
+              <div class="fact fact-green">
+                <div class="fact-badge"> Mar 2020 </div>
+                <div class="fact-info"> Telegram threw the towel in its battle with the US regulator that prohibited the
+                  issuance of Gram. All resistance appeared to be futile. &nbsp;<a href="https://en.wikipedia.org/wiki/Telegram_Open_Network" target="_blank" class="external-link"></a>
+                </div>
+              </div>
+              <div class="fact fact-green">
+                <div class="fact-badge"> May 2020 </div>
+                <div class="fact-info">
+                  The Telegram team shut the project down and stopped supporting testnet2 after obtaining the
+                  court approval of settlements that involved a penalty of $18.5m. Yet, Telegram has neither
+                  denied nor accepted charges.
+                  <br><br>
+                  The company then made it up with investors and suggested a money back road-map. It was
+                  then that independent developers and teams picked up the TON flag and continued the project.&nbsp;<a href="https://www.sec.gov/news/press-release/2020-146" target="_blank" class="external-link"></a>
+                </div>
+              </div>
+              <div class="fact fact-green">
+                <div class="fact-badge"> May 2020 </div>
+                <div class="fact-info">
+                  Two developers known as <a href="https://github.com/tolya-yanot" target="_blank">Anatoliy Makosov</a> and <a href="https://github.com/emelyanenkoK" target="_blank">EmelyanenkoK</a> initiated Newton open-source
+                  community aimed at further development and support of TON on the open source principles.
+                  <br><br>
+                  More developers who never worked for Telegram, members of the open developer community,
+                  validators, winners of public TON Blockchain Contests and crypto enthusiasts from all over the
+                  world joined them.&nbsp;<a href="https://t.me/tonblockchain/3" target="_blank" class="external-link"></a>
+                </div>
+              </div>
+              <div class="fact fact-green">
+                <div class="fact-badge"> May 2020 — May 2021 </div>
+                <div class="fact-info">
+                  Upon researching TON source code, architecture and documentation, Newton resumed
+                  developing in compliance with the original whitepaper and ideas.&nbsp;<a href="#" target="_blank" class="external-link"></a> </div>
+              </div>
+              <div class="fact fact-green">
+                <div class="fact-badge"> May 2021 </div>
+                <div class="fact-info">
+                  Testnet2 remains stable for a long time and the community votes for renaming it as Mainnet.
+                  Newton team, in turn, is renamed as TON Foundation — a not-for-proft community focused on
+                  further support and development of the network.
+                  &nbsp;<a href="https://t.me/tonblockchain/21" target="_blank" class="external-link"></a> </div>
+              </div>
+              <div class="fact fact-green fact-center">
+                <div class="fact-badge"> May 2021 </div>
+                <div class="fact-info"> 
+                  <div class="fact-box"> 
+                    <img src="TON%20-%20The%20Open%20Network_files/group_icon.svg" alt="">
+                    <p class="text-bold"> Stable and secure blockchain with the necessary services </p>
+                  </div>
+                </div>
+              </div>
+              <div class="fact fact-green fact-center">
+                <div class="fact-badge"> 2021 Q3 </div>
+                <div class="fact-info"> 
+                  <div class="fact-box"> 
+                    <img src="TON%20-%20The%20Open%20Network_files/bridge_icon.svg" alt="">
+                    <p class="text-bold"> TON-ETH and TON-BSC Bridges </p>
+                  </div>
+                </div>
+              </div>
+              <div class="fact fact-green fact-center fact-edge">
+                <div class="fact-badge"> 2021 Q4 </div>
+                <div class="fact-info"> 
+                  <div class="fact-box__wrap">
+                    <div class="fact-box"> 
+                      <img src="TON%20-%20The%20Open%20Network_files/wallet_icon.svg" alt="">
+                      <p class="text-bold"> TON Subscriptions </p>
+                    </div>
+                    <div class="fact-box"> 
+                      <img src="TON%20-%20The%20Open%20Network_files/coins_icon.svg" alt="">
+                      <p class="text-bold"> Listing on the world`s top exchanges </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="fact fact-center fact-actual">
+                <div class="fact-badge"> We are here </div>
+              </div>
+
+              <div class="fact fact-center">
+                <div class="fact-badge"> 2022 Q1 </div>
+                <div class="fact-info"> 
+                  <div class="fact-box__wrap">
+                    <div class="fact-box"> 
+                      <img src="TON%20-%20The%20Open%20Network_files/coins_icon.svg" alt="">
+                      <p class="text-bold"> TON Nominators </p>
+                    </div>
+                    <div class="fact-box"> 
+                      <img src="TON%20-%20The%20Open%20Network_files/round_icon.svg" alt="">
+                      <p class="text-bold"> TON DeFi </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="fact fact-center fact-pseudo">
+                <div class="fact-info">
+                  <div class="fact-box"> 
+                    <img src="TON%20-%20The%20Open%20Network_files/terminal_icon.svg" alt="">
+                    <p class="text-bold"> TON Developers Program </p>
+                  </div>                  
+                </div>
+              </div>
+              <div class="fact fact-center">
+                <div class="fact-badge"> 2022 Q2 </div>
+                <div class="fact-info"> 
+                  <div class="fact-box__wrap">
+                    <div class="fact-box"> 
+                      <img src="TON%20-%20The%20Open%20Network_files/servers_icon.svg" alt="">
+                      <p class="text-bold"> TON DNS </p>
+                    </div>
+                    <div class="fact-box"> 
+                      <img src="TON%20-%20The%20Open%20Network_files/wallet_icon.svg" alt="">
+                      <p class="text-bold"> TON Payments </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="fact fact-center">
+                <div class="fact-badge"> 2022 Q3 </div>
+                <div class="fact-info"> 
+                  <div class="fact-box__wrap">
+                    <div class="fact-box"> 
+                      <img src="TON%20-%20The%20Open%20Network_files/incognito_icon.svg" alt="">
+                      <p class="text-bold"> TON Proxy </p>
+                    </div>
+                    <div class="fact-box"> 
+                      <img src="TON%20-%20The%20Open%20Network_files/incognito_icon.svg" alt="">
+                      <p class="text-bold"> TON Sites </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="fact fact-center">
+                <div class="fact-badge"> 2022 Q4 </div>
+                <div class="fact-info"> 
+                  <div class="fact-box"> 
+                    <img src="TON%20-%20The%20Open%20Network_files/folder_icon.svg" alt="">
+                    <p class="text-bold"> TON Storage </p>
+                  </div>
+                </div>
+              </div>
+              <div class="fact fact-center fact-short">
+                <div class="fact-badge"> 2023 </div>
+                <div class="fact-info"> 
+                  <div class="fact-box"> 
+                    <img src="TON%20-%20The%20Open%20Network_files/link_icon.svg" alt="">
+                    <p class="text-bold"> Bitcoin &amp; EVM Workchains </p>
+                  </div>
+                </div>
+              </div>
+              <div class="fact fact-center fact-last fact-empty">
+              </div>
+            </div>
+          </div>
+        </section> -->
+
+      <section class="block-a">
+        <div class="abs-row">
+          <!-- <h3> TON Foundation </h3> -->
+          <div class="abs-row__img">
+            <img src="TON%20-%20The%20Open%20Network_files/img_6.svg" alt="">
+          </div>
+          <p>
+            BluMilk is a cutting-edge company that specializes in Telegram solutions. Our team of experienced developers is
+            passionate about creating innovative and solutions that can transform the way you do business using social media. </p>
+          <p>
+            With our customized Telegram bots, you can streamline your communication processes, automate your workflow, and improve
+            your customer engagement. Our bots are designed to be easy to use and integrate seamlessly with your existing systems
+            and processes.
+          </p>
+          <p> At BluMilk, we believe in staying ahead of the curve when it comes to technology. That's why we are constantly
+          researching and developing new features and functionalities, so that you can stay ahead of the competition
+          and deliver the best possible service to your customers. </p>
+        </div>
+      </section>
+
+      <!-- <section class="governance-block">
+        <h3> Governance </h3>
+        <p class="restricted"> TON design ensures that network modifications are only possible if approved by the
+          majority of validators via Proof-of-Stake consensus. </p>
+        <p class="restricted"> There is no way to change network software, configuration or state bypassing the vote.
+        </p>
+      </section> -->
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      
+      <div class="nav-btns">
+        <a href="https://t.me/Zupirio"  target="_blank" class="btn btn-primary btn-mob">
+          <img src="TON%20-%20The%20Open%20Network_files/telegram.svg" alt="">
+          <span> Channel </span>
+        </a>
+        <a href="https://github.com/Zupirio" target="_blank" class="btn btn-outline btn-mob">
+          <img src="TON%20-%20The%20Open%20Network_files/github-blue.svg" alt="">
+          <span> Github </span>
+        </a>
+        <a href="mailto:zupirio@duck.com" target="_blank" class="btn btn-outline btn-mob">
+          <img src="TON%20-%20The%20Open%20Network_files/email_icon.svg" class="email-icon" alt="">
+          <span> Contact Us </span>
+        </a>
+      </div>
+      <div class="nav-list">
+        <!-- <div class="nav-item">
+          <div class="nav-item__btn"> Core </div>
+          <ul class="nav-item__list">
+            <li> <a href="https://ton.org/primer.pdf"> Primer </a> </li>
+            <li> <a href="https://ton.org/whitepaper.pdf"> Whitepaper </a> </li>
+            <li> <a href="https://ton.org/wallets"> Wallets </a> </li>
+            <li> <a href="https://ton.org/services/"> Services </a> </li>
+            <li> <a href="https://tonscan.org/" target="_blank"> Explorer </a> </li>
+            <li> <a href="https://ton.org/bridge/"> Bridge </a> </li>
+            <li> <a href="https://ton.org/brand-assets"> Brand Assets </a> </li>
+            <li> <a href="https://ton.org/vacancies/" target="_blank"> Vacancies </a> </li>
+          </ul>
+        </div>
+        <div class="nav-item">
+          <div class="nav-item__btn"> Toncoin </div>
+          <ul class="nav-item__list">
+            <li> <a href="https://ton.org/coin"> About Toncoin </a> </li>
+          </ul>
+        </div> -->
+        <div class="nav-item">
+          <div class="nav-item__btn"> Developers </div>
+          <ul class="nav-item__list">
+            <li> <a href=""> GitHub </a> </li>
+            <li> <a href=""> Docs </a> </li>
+            <li> <a href=""> API </a> </li>
+          </ul>
+        </div>
+        <!-- <div class="nav-item">
+          <div class="nav-item__btn"> Mining </div>
+          <ul class="nav-item__list">
+            <li> <a href="https://ton.org/mining"> Mining Data </a> </li>
+          </ul>
+        </div> -->
+        <div class="nav-item">
+          <!-- <div class="nav-item__btn"> How It Works </div> -->
+          <!-- <ul class="nav-item__list">
+            <li> <a href="https://ton.org/how-it-works/pos"> Proof-of-Stake </a> </li>
+            <li> <a href="https://ton.org/how-it-works/bridge"> Bridge </a> </li>
+            <li> <a href="https://ton.org/how-it-works/mining"> Givers </a> </li>
+          </ul> -->
+        </div>
+        <!-- <div class="nav-item">
+          <div class="nav-item__btn"> Validators </div>
+          <ul class="nav-item__list">
+            <li> <a href="https://ton.org/validator"> Become validator </a> </li>
+            <li> <a href="https://tonmon.xyz/" target="_blank"> Network Monitor </a> </li>
+          </ul>
+        </div> -->
+      </div>
+      <div class="scroll-top js-scroll-top"> Back to top </div>
+    </div>
+  </footer>
+
+  <script src="TON%20-%20The%20Open%20Network_files/script.js"></script>
+  <script src="TON%20-%20The%20Open%20Network_files/notice.js"></script>
+
 
 </body>
-
-<script type="text/javascript">
-    Telegram.WebApp.expand();
-</script>
 
 </html>
